@@ -1,3 +1,5 @@
+const { W, A, S, D, P, O, CONTROLC } = require("./constants");
+
 let connection;
 let interval;
 let currCommand;
@@ -18,19 +20,19 @@ const runCommand = function(command) {
 
 const handleUserInput = function(data) {
   
-  if (data === "\u0003") {
+  if (data === CONTROLC) {
     process.exit();
-  } else if (data === "\u0077") {
+  } else if (data === W) {
     runCommand("Move: up");
-  } else if (data === "\u0061") {
+  } else if (data === A) {
     runCommand("Move: left");
-  } else if (data === "\u0073") {
+  } else if (data === S) {
     runCommand("Move: down");
-  } else if (data === "\u0064") {
+  } else if (data === D) {
     runCommand("Move: right");
-  } else if (data === "\u0070") {
+  } else if (data === P) {
     connection.write("Say: yoyo");
-  } else if (data === "\u006F") {
+  } else if (data === O) {
     connection.write("Say: lol :p");
   }
 };

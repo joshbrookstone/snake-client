@@ -1,13 +1,14 @@
 const net = require('net');
+const { IP, PORT, ENCODER } = require("./constants");
 
 
 const connect = function() {
   const conn = net.createConnection({
-    host: '50.64.116.162',
-    port: 50541
+    host: IP,
+    port: PORT
   });
   // interpret incoming data as text
-  conn.setEncoding('utf8');
+  conn.setEncoding(ENCODER);
 
   conn.on('connect', () => {
     console.log("Successfully connected to a gamer server");
@@ -22,5 +23,4 @@ const connect = function() {
   return conn;
 };
 
-// is this shorthand notation?
 module.exports = {connect};
