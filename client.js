@@ -9,11 +9,12 @@ const connect = function() {
 
   conn.on('connect', () => {
     console.log("Successfully connected to a gamer server");
+    conn.write("Name: bob");
   });
 
-  
+
   conn.on('data', (data) => {
-    console.log('Server says: ', data);
+    console.log(data);
   });
   
   return conn;
